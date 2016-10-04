@@ -1,6 +1,6 @@
 {
-  "name": "Fleetr",
-  "tagline": "Demand Prediction for Vehicle Logistics",
+  "name": "Fleetr: Demand Prediction for Vehicle Logistics",
+  "tagline": "",
   "body": "# Fleetr: Demand Prediction for Vehicle Logistics \r\n\r\nI did my insight project with a startup, Fleetr*.\r\nFleetr delivers rental cars.\r\nA customer can book a car through their mobile app and they will have an agent deliver the car directly to the customer at the given time and location.\r\nThey are more like a mobility provider. They don’t own cars. They partner with local car rental companies to server their customers. \r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
