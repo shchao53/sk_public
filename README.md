@@ -11,3 +11,8 @@ The biggest challenge they are facing right now is to predict the demand at a gi
 # The data
 Fleetr gave me their booking data since Feb 2016. They changed their target customers and local operation dramatically in late May. This change of business was clearly reflected on the booking data. Therefore, I used the data after the change for model building. The data contains the delivery time and location for each booking, along with other information like the model of the car, the price, the booking time, customer ID, etc.
 
+## Data cleaning
+As many other data scientists, I spent more than half of my time cleaning the data and transform the data into right format for later model training.
+
+## Regional segmentation
+Most of Fleetr’s bookings came from their biggest market – Los Angeles. They have total 3 local ‘hubs’ in LA. Hubs are parking facilities in which they store cars from partner rental companies in advance. When receiving a booking, Fleetr delivers a car from the nearest hub to wherever the delivery location of the booking. Based on this operation rule, I first separated the data into three subsets, according to the distance between the delivery location and the hub location, as shown in the figure below. The distance was driving distance, which was calculated using Google Distance Matrix API.
