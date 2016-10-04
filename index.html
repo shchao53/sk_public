@@ -45,6 +45,16 @@ They are more like a mobility provider. They don’t own cars. They partner with
 <a id="the-data" class="anchor" href="#the-data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The data</h1>
 
 <p>Fleetr gave me their booking data since Feb 2016. They changed their target customers and local operation dramatically in late May. This change of business was clearly reflected on the booking data. Therefore, I used the data after the change for model building. The data contains the delivery time and location for each booking, along with other information like the model of the car, the price, the booking time, customer ID, etc.</p>
+
+<h2>
+<a id="data-cleaning" class="anchor" href="#data-cleaning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data cleaning</h2>
+
+<p>As many other data scientists, I spent more than half of my time cleaning the data and transform the data into right format for later model training.</p>
+
+<h2>
+<a id="regional-segmentation" class="anchor" href="#regional-segmentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Regional segmentation</h2>
+
+<p>Most of Fleetr’s bookings came from their biggest market – Los Angeles. They have total 3 local ‘hubs’ in LA. Hubs are parking facilities in which they store cars from partner rental companies in advance. When receiving a booking, Fleetr delivers a car from the nearest hub to wherever the delivery location of the booking. Based on this operation rule, I first separated the data into three subsets, according to the distance between the delivery location and the hub location, as shown in the figure below. The distance was driving distance, which was calculated using Google Distance Matrix API.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/shchao53">shchao53</a></p>
