@@ -28,33 +28,44 @@
         </ul>
       </header>
       <section>
-        <p>I did my insight project with a startup, Fleetr*.
-Fleetr delivers rental cars.
-A customer can book a car through their mobile app and they will have an agent deliver the car directly to the customer at the given time and location.
-They are more like a mobility provider. They don’t own cars. They partner with local car rental companies to server their customers. </p>
+        <p>I did my insight project with a startup, Fleetr*. Fleetr delivers rental cars. A customer can book a car through their mobile app and they will have an agent deliver the car directly to the customer at the given time and location. They are more like a mobility provider. They don’t own cars. They partner with local car rental companies to server their customers. </p>
 
-<h6>
-<a id="a-fake-name-becuase-the-company-wants-to-remain-anonymous" class="anchor" href="#a-fake-name-becuase-the-company-wants-to-remain-anonymous" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>*a fake name becuase the company wants to remain anonymous</h6>
+<p>*This is a fake name. The company wants to remain anonymous. </p>
 
 <h1>
 <a id="the-problem" class="anchor" href="#the-problem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The problem</h1>
 
-<p>The biggest challenge they are facing right now is to predict the demand at a given time, which is extremely important to the ground logistics of an on-demand company like Fleetr. This is a very challenging problem considering how many factors could affect the demand, and how those factors vary from region to region. Currently, they don’t have any prediction system working. They get the car from their partner companies according to the booking request. If they don’t have enough in their parking lot, they will try to get more from their partners. This is where I can help them – making a predictive model. Anything is better than nothing!</p>
+<p>The biggest challenge they are facing right now is to predict the demand at a given time, which is extremely important to the ground logistics of an on-demand company like Fleetr. This is a very challenging problem considering how many factors could affect the demand, and how those factors vary from region to region. Currently, they don’t have any prediction system working. They get the car from their partner companies according to the booking request. If they don’t have enough in their parking lot, they will try to get more from their partners. This is where I can help them – making a predictive model. Anything is better than nothing!  </p>
 
 <h1>
 <a id="the-data" class="anchor" href="#the-data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The data</h1>
 
-<p>Fleetr gave me their booking data since Feb 2016. They changed their target customers and local operation dramatically in late May. This change of business was clearly reflected on the booking data. Therefore, I used the data after the change for model building. The data contains the delivery time and location for each booking, along with other information like the model of the car, the price, the booking time, customer ID, etc.</p>
+<p>Fleetr gave me their booking data since Feb 2016. They changed their target customers and local operation dramatically in late May. This change of business was clearly reflected on the booking data. Therefore, I used the data after the change for model building. The data contains the delivery time and location for each booking, along with other information like the model of the car, the price, the booking time, customer ID, etc. </p>
+
+<p>By looking at the geographical distribution of the delivery locations, </p>
+
+<p>The task was then narrowed down from </p>
 
 <h2>
 <a id="data-cleaning" class="anchor" href="#data-cleaning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data cleaning</h2>
 
-<p>As many other data scientists, I spent more than half of my time cleaning the data and transform the data into right format for later model training.</p>
+<p>As many other data scientists, I spent more than half of my time cleaning the data and transform the data into right format for later model training. There are some noises in the data I removed beforehand. For example, unlike majority of customers requested for sedan, occasionally there are people renting trucks or 15 seaters. I removed these booking records and only focused on major    </p>
 
 <h2>
 <a id="regional-segmentation" class="anchor" href="#regional-segmentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Regional segmentation</h2>
 
-<p>Most of Fleetr’s bookings came from their biggest market – Los Angeles. They have total 3 local ‘hubs’ in LA. Hubs are parking facilities in which they store cars from partner rental companies in advance. When receiving a booking, Fleetr delivers a car from the nearest hub to wherever the delivery location of the booking. Based on this operation rule, I first separated the data into three subsets, according to the distance between the delivery location and the hub location, as shown in the figure below. The distance was driving distance, which was calculated using Google Distance Matrix API.</p>
+<p>Most of Fleetr’s bookings came from their biggest market – Los Angeles. They have total 3 local ‘hubs’ in LA. Hubs are parking facilities in which they store cars from partner rental companies in advance. When receiving a booking, Fleetr delivers a car from the nearest hub to wherever the delivery location of the booking. Based on this operation rule, I first separated the data into three subsets, according to the distance between the delivery location and the hub location, as shown in the figure below. The distance was driving distance, which was calculated using Google Distance Matrix API.  </p>
+
+<h2>
+<a id="weekly-booking-pattern" class="anchor" href="#weekly-booking-pattern" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Weekly booking pattern</h2>
+
+<h1>
+<a id="the-model" class="anchor" href="#the-model" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The model</h1>
+
+<p>Summary
+To sum up, I built predictive models for Fleetr to predict the booking demand in their hubs in LA, using the historical booking data since late May. The biggest limitation I had is the problem of “small data” – I had only three months of data. There was no data covering the same season that I can validate. Training data on the summer season was especially risky, since summer is when students go home and lots of tourists visiting popular tourist spots like Hollywood. </p>
+
+<p>I delivered the model to Fleetr and they are about to test it. They can also re-train the model once they have more data. Hopefully that can help improve the model performance further. There were two other recommendations I gave Fleetr, which could potentially be future data science project they can work on: 1)   </p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/shchao53">shchao53</a></p>
