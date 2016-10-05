@@ -66,7 +66,7 @@
 <h1>
 <a id="the-model" class="anchor" href="#the-model" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The model</h1>
 
-<p>From the time series data, I generated N features, which includes day of week, week of month, prior-day price, etc. I also introduced external signals like holiday information and local weather. I then trained three linear regression models separately for three hubs. It turned out that weather was not an important factor in the model, because during the summer it's almost sunny everyday in LA. The most important features were day of week is friday, prior-day price, and features related to holidays. The feature importance differed slightly between three models. </p>
+<p>From the time series data, I generated 30 features, which includes day of week, week of month, prior-day price, etc. I also introduced external signals like holiday information and local weather. I then trained three linear regression models separately for three hubs. It turned out that weather was not an important factor in the model, because during the summer it's almost sunny everyday in LA. The most important features were day of week is friday, prior-day price, and features related to holidays. The feature importance differed slightly between three models. </p>
 
 <p>A 7-day forecast can then be made using the model.  </p>
 
