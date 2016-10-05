@@ -18,7 +18,7 @@ As many other data scientists, I spent more than half of my time cleaning the da
 ## Regional segmentation
 Most of Fleetr’s bookings came from their biggest market – Los Angeles. They have total 3 local hubs in LA. Hubs are parking facilities in which they store cars rented from partner rental companies in advance. At the requested delivery time, Fleetr delivers a car from the nearest hub to wherever the delivery location of the booking is. Based on this operation rule, I first separated the data into three subsets, according to the distance between the delivery location and the hub location, as shown in the figure below. The distance was driving distance calculated using Google Distance Matrix API.  
 
-<img src="https://raw.githubusercontent.com/shchao53/sk_public/master/image/map.png" width="400">
+<img src="https://raw.githubusercontent.com/shchao53/sk_public/master/image/map.png" width="400" align="middle">
 
 By looking at the geographical distribution of the delivery locations, along with the domain knowledge of Los Angeles, one can easily point out the difference of booking between three hubs. Hub1 is close to downtown LA. Hub2 covers Hollywood, where had a lot of delivery records. Hub3 covers Santa Monica and LAX airport.  
 
@@ -32,10 +32,10 @@ The three hubs also showed slightly different booking trends. Hub1 had less book
 # The model 
 From the time series data, I generated N features, which includes day of week, week of month, prior-day price, etc. I also introduced external signals like holiday information and local weather. I then trained three linear regression models separately for three hubs. 
 
-<img src="https://raw.githubusercontent.com/shchao53/sk_public/master/image/forecasting.png" width="600">
+<img src="https://raw.githubusercontent.com/shchao53/sk_public/master/image/forecasting.png" width="600" align="middle">
 
 # Summary
-<img src="https://raw.githubusercontent.com/shchao53/sk_public/master/image/pipeline.png" width="600">
+<img src="https://raw.githubusercontent.com/shchao53/sk_public/master/image/pipeline.png" width="600" align="middle">
 
 To sum up, I used the above pipeline to build predictive models for Fleetr to predict the booking demand in their hubs in LA, using the historical booking data since late May. The biggest limitation I had is the problem of “small data” – I had only three months of data. There was no data covering the same season that I can validate. Training data on the summer season was especially risky, since summer is when students go home and lots of tourists visiting popular tourist spots like Hollywood. 
 
