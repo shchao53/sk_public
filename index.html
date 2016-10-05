@@ -28,38 +28,42 @@
         </ul>
       </header>
       <section>
-        <p>I did my insight project with a startup, Fleetr*. Fleetr delivers rental cars. A customer can book a car through their mobile app and they will have an agent deliver the car directly to the customer at the given time and location. They are more like a mobility provider. They don’t own cars. They partner with local car rental companies to server their customers. </p>
+        <p>I did my Insight project with a startup, Fleetr*. Fleetr delivers rental cars. A customer can book a car through their mobile app and they will have an agent deliver the car directly to the customer at the given time and location. They are more like a mobility provider. They don’t own cars. They partner with local car rental companies to server their customers. </p>
 
 <p>*This is a fake name. The company wants to remain anonymous. </p>
 
 <h1>
 <a id="the-problem" class="anchor" href="#the-problem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The problem</h1>
 
-<p>The biggest challenge they are facing right now is to predict the demand at a given time, which is extremely important to the ground logistics of an on-demand company like Fleetr. This is a very challenging problem considering how many factors could affect the demand, and how those factors vary from region to region. Currently, they don’t have any prediction system working. They get the car from their partner companies according to the booking request. If they don’t have enough in their parking lot, they will try to get more from their partners. This is where I can help them – making a predictive model. Anything is better than nothing!  </p>
+<p>The biggest challenge they are facing right now is to predict the demand at a given time, which is extremely important to the ground logistics of an on-demand company like Fleetr. This is a very challenging problem considering how many factors could affect the demand, and how those factors vary from region to region. Currently, they don’t have any prediction system working. They get the cars from their partner companies according to the booking requests. If they don’t have enough in their parking lot, they will try to get more from their partners. This is where I can help them – making a predictive model. Anything is better than nothing!  </p>
 
 <h1>
 <a id="the-data" class="anchor" href="#the-data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The data</h1>
 
-<p>Fleetr gave me their booking data since Feb 2016. They changed their target customers and local operation dramatically in late May. This change of business was clearly reflected on the booking data. Therefore, I used the data after the change for model building. The data contains the delivery time and location for each booking, along with other information like the model of the car, the price, the booking time, customer ID, etc. </p>
+<p>Fleetr gave me their booking data since Feb 2016. They changed their target customers and local operation dramatically in late May. This change of business was clearly reflected in the booking data. Therefore, I used the data after the change for model building. The data contains the delivery time and location for each booking, along with other information like the model of the car, the price, the booking time, customer ID, etc. </p>
 
 <h2>
 <a id="data-cleaning" class="anchor" href="#data-cleaning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data cleaning</h2>
 
-<p>As many other data scientists, I spent more than half of my time cleaning the data and transform the data into the right format for later model training. There are some noises in the data I removed beforehand. For example, unlike the majority of customers requested for sedans, occasionally there are people renting trucks or 15 seaters. I removed these booking records and only focused on major    </p>
+<p>As many other data scientists, I spent more than half of my time cleaning the data and transforming the data into the right format for later model training. There were some noises in the data I removed beforehand. For example, unlike the majority of customers requested for sedans, occasionally there were people renting trucks or 15 seaters. I removed these booking records as noises.     </p>
 
 <h2>
 <a id="regional-segmentation" class="anchor" href="#regional-segmentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Regional segmentation</h2>
 
-<p>Most of Fleetr’s bookings came from their biggest market – Los Angeles. They have total 3 local ‘hubs’ in LA. Hubs are parking facilities in which they store cars from partner rental companies in advance. When receiving a booking, Fleetr delivers a car from the nearest hub to wherever the delivery location of the booking. Based on this operation rule, I first separated the data into three subsets, according to the distance between the delivery location and the hub location, as shown in the figure below. The distance was driving distance, which was calculated using Google Distance Matrix API.<br>
-By looking at the geographical distribution of the delivery locations, with the domain knowledge of Los Angeles, one can easily point out the difference of booking between three hubs. Hub1 is close to downtown LA. Hub2 covers Hollywood, where had a lot of delivery records. Hub3 covers Santa Monica and LAX airport.  </p>
+<p>Most of Fleetr’s bookings came from their biggest market – Los Angeles. They have total 3 local hubs in LA. Hubs are parking facilities in which they store cars rented from partner rental companies in advance. At the requested delivery time, Fleetr delivers a car from the nearest hub to wherever the delivery location of the booking is. Based on this operation rule, I first separated the data into three subsets, according to the distance between the delivery location and the hub location, as shown in the figure below. The distance was driving distance calculated using Google Distance Matrix API.<br>
+By looking at the geographical distribution of the delivery locations, along with the domain knowledge of Los Angeles, one can easily point out the difference of booking between three hubs. Hub1 is close to downtown LA. Hub2 covers Hollywood, where had a lot of delivery records. Hub3 covers Santa Monica and LAX airport.  </p>
 
 <h2>
 <a id="the-daily-booking-number" class="anchor" href="#the-daily-booking-number" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The daily booking number</h2>
 
-<p>I grouped the data by date to get the daily booking data. The data shows a clear seasonality, which corresponds to the weekly booking pattern. Usually, the booking number increases over the weekend. Friday is the busiest day of a week. </p>
+<p>I grouped the data by date to get the daily booking data. The data shows a clear seasonality, which corresponds to the weekly booking pattern. Usually, the booking number increases over the weekend. Friday is the busiest day of a week. I didn’t see a clear monthly trend. </p>
+
+<p>The three hubs also showed slightly different booking trends. Hub1 had less booking comparing to hub2 and hub3. Hub3 had a more apparent seasonality and higher spikes during the holiday weekends, which was attributed to traveler customers. </p>
 
 <h1>
 <a id="the-model" class="anchor" href="#the-model" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The model</h1>
+
+<p>From the time series data, I generated N features, which includes day of week, week of month, prior-day price, etc. I also introduced external signals like holiday information and local weather. I then trained three linear regression models separately for three hubs. </p>
 
 <h1>
 <a id="summary" class="anchor" href="#summary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Summary</h1>
