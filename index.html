@@ -42,31 +42,33 @@
 
 <p>Fleetr gave me their booking data since Feb 2016. They changed their target customers and local operation dramatically in late May. This change of business was clearly reflected on the booking data. Therefore, I used the data after the change for model building. The data contains the delivery time and location for each booking, along with other information like the model of the car, the price, the booking time, customer ID, etc. </p>
 
-<p>By looking at the geographical distribution of the delivery locations, </p>
-
-<p>The task was then narrowed down from </p>
-
 <h2>
 <a id="data-cleaning" class="anchor" href="#data-cleaning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data cleaning</h2>
 
-<p>As many other data scientists, I spent more than half of my time cleaning the data and transform the data into right format for later model training. There are some noises in the data I removed beforehand. For example, unlike majority of customers requested for sedan, occasionally there are people renting trucks or 15 seaters. I removed these booking records and only focused on major    </p>
+<p>As many other data scientists, I spent more than half of my time cleaning the data and transform the data into the right format for later model training. There are some noises in the data I removed beforehand. For example, unlike the majority of customers requested for sedans, occasionally there are people renting trucks or 15 seaters. I removed these booking records and only focused on major    </p>
 
 <h2>
 <a id="regional-segmentation" class="anchor" href="#regional-segmentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Regional segmentation</h2>
 
-<p>Most of Fleetr’s bookings came from their biggest market – Los Angeles. They have total 3 local ‘hubs’ in LA. Hubs are parking facilities in which they store cars from partner rental companies in advance. When receiving a booking, Fleetr delivers a car from the nearest hub to wherever the delivery location of the booking. Based on this operation rule, I first separated the data into three subsets, according to the distance between the delivery location and the hub location, as shown in the figure below. The distance was driving distance, which was calculated using Google Distance Matrix API.  </p>
+<p>Most of Fleetr’s bookings came from their biggest market – Los Angeles. They have total 3 local ‘hubs’ in LA. Hubs are parking facilities in which they store cars from partner rental companies in advance. When receiving a booking, Fleetr delivers a car from the nearest hub to wherever the delivery location of the booking. Based on this operation rule, I first separated the data into three subsets, according to the distance between the delivery location and the hub location, as shown in the figure below. The distance was driving distance, which was calculated using Google Distance Matrix API.<br>
+By looking at the geographical distribution of the delivery locations, with the domain knowledge of Los Angeles, one can easily point out the difference of booking between three hubs. Hub1 is close to downtown LA. Hub2 covers Hollywood, where had a lot of delivery records. Hub3 covers Santa Monica and LAX airport.  </p>
 
 <h2>
-<a id="weekly-booking-pattern" class="anchor" href="#weekly-booking-pattern" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Weekly booking pattern</h2>
+<a id="the-daily-booking-number" class="anchor" href="#the-daily-booking-number" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The daily booking number</h2>
+
+<p>I grouped the data by date to get the daily booking data. The data shows a clear seasonality, which corresponds to the weekly booking pattern. Usually, the booking number increases over the weekend. Friday is the busiest day of a week. </p>
 
 <h1>
 <a id="the-model" class="anchor" href="#the-model" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The model</h1>
 
-<p><img src="https://raw.githubusercontent.com/shchao53/sk_public/master/image/pipeline.png?token=AIrqC_EQKHhh2VJO0qwqtGJw5QyjVEqLks5X_XKhwA%3D%3D" alt="">
-Summary
-To sum up, I built predictive models for Fleetr to predict the booking demand in their hubs in LA, using the historical booking data since late May. The biggest limitation I had is the problem of “small data” – I had only three months of data. There was no data covering the same season that I can validate. Training data on the summer season was especially risky, since summer is when students go home and lots of tourists visiting popular tourist spots like Hollywood. </p>
+<h1>
+<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Summary</h1>
 
-<p>I delivered the model to Fleetr and they are about to test it. They can also re-train the model once they have more data. Hopefully that can help improve the model performance further. There were two other recommendations I gave Fleetr, which could potentially be future data science project they can work on: 1)   </p>
+<p>To sum up, I built predictive models for Fleetr to predict the booking demand in their hubs in LA, using the historical booking data since late May. The biggest limitation I had is the problem of “small data” – I had only three months of data. There was no data covering the same season that I can validate. Training data on the summer season was especially risky, since summer is when students go home and lots of tourists visiting popular tourist spots like Hollywood. </p>
+
+<p>I delivered the model to Fleetr and they are about to test it. They can also re-train the model once they have more data in the following months. Hopefully that can help improve the model performance further. There were two other recommendations I gave Fleetr, which could potentially be future data science project they can work on: 1) Adapt surge pricing model to compensate the underestimation of demand sometimes, especially over the weekend; 2) Log more customer information when on-boarding for customer segmentation. For example, age could be a good indicator of students, or locals and travelers could be separate by billing addresses, etc. For now, there is no luxury in terms of data points to the build in such a granular way, but these are all fun projects to work on in the future. ☺</p>
+
+<p>I used Pandas for data mugging, Google Distance Matrix API for distance calculation, scikit-learn and StatsModel for model building, and Folium for mapping. </p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/shchao53">shchao53</a></p>
