@@ -13,14 +13,14 @@ Fleetr gave me their booking data since Feb 2016. They changed their target cust
 
 
 ## Data cleaning 
-As many other data scientists, I spent more than half of my time cleaning the data and transforming the data into the right format for later model training. There were some noises in the data I removed beforehand. For example, unlike the majority of customers requested for sedans, occasionally there were people renting trucks or 15 seaters. I removed these booking records as noises.     
+As many other data scientists, I spent more than half of my time cleaning the data and transforming the data into the right format for later model training. There were some noises in the data I removed beforehand. For example, unlike the majority of customers requesting sedans, occasionally there were people renting trucks or 15 seaters. I removed these booking records as noises.     
 
 ## Regional segmentation
 Most of Fleetr’s bookings came from their biggest market – Los Angeles. They have total 3 local hubs in LA. Hubs are parking facilities in which they store cars rented from partner rental companies in advance. At the requested delivery time, Fleetr delivers a car from the nearest hub to wherever the delivery location of the booking is. Based on this operation rule, I first separated the data into three subsets, according to the distance between the delivery location and the hub location, as shown in the figure below. The distance was driving distance calculated using Google Distance Matrix API.  
 
 <img src="https://raw.githubusercontent.com/shchao53/sk_public/master/image/map.png" width="400" align="middle">
 
-By looking at the geographical distribution of the delivery locations, along with the domain knowledge of Los Angeles, one can easily point out the difference of booking between three hubs. Hub1 is close to downtown LA. Hub2 covers Hollywood, where had a lot of delivery records. Hub3 covers Santa Monica and LAX airport.  
+By looking at the geographical distribution of the delivery locations, along with the domain knowledge of Los Angeles, one can easily point out the difference of booking between three hubs. Hub1 is close to downtown LA. Hub2 covers Hollywood, where a lot of delivery records came from. Hub3 covers Santa Monica and LAX airport.  
 
 
 ## The daily booking number
