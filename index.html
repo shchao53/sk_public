@@ -30,7 +30,7 @@
       <section>
         <p>I did my Insight project with a startup, Fleetr*. Fleetr delivers rental cars. A customer can book a car through their mobile app and they will have an agent deliver the car directly to the customer at the given time and location. They are more like a mobility provider. They don’t own cars. They partner with local car rental companies to server their customers. </p>
 
-<p>*This is a fake name. The company wants to remain anonymous. </p>
+<p><sub>*This is a fake name. The company wants to remain anonymous. I also hided all the numbers or converted them to percentage.</sub> </p>
 
 <h1>
 <a id="the-problem" class="anchor" href="#the-problem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The problem</h1>
@@ -66,7 +66,7 @@
 <h1>
 <a id="the-model" class="anchor" href="#the-model" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The model</h1>
 
-<p>From the time series data, I generated 30 features, which includes day of week, week of month, prior-day price, etc. I also introduced external signals like holiday information and local weather. I then trained three linear regression models separately for three hubs. It turned out that weather was not an important factor in the model, because during the summer it's almost sunny everyday in LA. The most important features were day of week is friday, prior-day price, and features related to holidays. The feature importance differed slightly between three models. </p>
+<p>From the time series data, I generated 30 features, which includes day-of-week, week-of-month, prior-day price, etc. I also introduced external signals like holiday information and local weather. I then trained three linear regression models separately for three hubs. It turned out that weather was not an important factor in the model, because during the summer it's almost sunny everyday in LA. The most important features were day-of-week is Friday, prior-day price, and features related to holidays. The feature importance differed slightly between three models. </p>
 
 <p>A 7-day forecast can then be made using the model.  </p>
 
