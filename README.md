@@ -1,6 +1,6 @@
 I did my Insight project with a startup, Fleetr*. Fleetr delivers rental cars. A customer can book a car through their mobile app and they will have an agent deliver the car directly to the customer at the given time and location. They are more like a mobility provider. They don’t own cars. They partner with local car rental companies to server their customers. 
 
-*This is a fake name. The company wants to remain anonymous. I also hided all the numbers or converted them to percentage. 
+<sub>*This is a fake name. The company wants to remain anonymous. I also hided all the numbers or converted them to percentage.</sub> 
 
 
 # The problem 
