@@ -30,7 +30,7 @@ The three hubs also showed slightly different booking trends. Hub1 had less book
  
 
 # The model 
-From the time series data, I generated 30 features, which includes day of week, week of month, prior-day price, etc. I also introduced external signals like holiday information and local weather. I then trained three linear regression models separately for three hubs. It turned out that weather was not an important factor in the model, because during the summer it's almost sunny everyday in LA. The most important features were day of week is friday, prior-day price, and features related to holidays. The feature importance differed slightly between three models. 
+From the time series data, I generated 30 features, which includes day-of-week, week-of-month, prior-day price, etc. I also introduced external signals like holiday information and local weather. I then trained three linear regression models separately for three hubs. It turned out that weather was not an important factor in the model, because during the summer it's almost sunny everyday in LA. The most important features were day-of-week is Friday, prior-day price, and features related to holidays. The feature importance differed slightly between three models. 
 
 A 7-day forecast can then be made using the model.  
 
