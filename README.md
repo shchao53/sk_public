@@ -5,7 +5,7 @@ I did my Insight project with a startup, Fleetr*. Fleetr delivers rental cars. A
 
 # The problem 
 
-The biggest challenge they are facing right now is to predict the demand at a given time, which is extremely important to the ground logistics of an on-demand company like Fleetr. This is a very challenging problem considering how many factors could affect the demand, and how those factors vary from region to region. Currently, they don’t have any prediction system working. They get the cars from their partner companies according to the booking requests. If they don’t have enough in their parking lot, they will try to get more from their partners. This is where I can help them --- making a predictive model. Anything is better than nothing!  
+The biggest challenge they are facing right now is to predict the demand at a given time, which is extremely important to the ground logistics of an on-demand company like Fleetr. This is a very challenging problem considering how many factors could affect the demand, and how those factors vary from region to region. Currently, they don’t have any prediction system working. They get the cars from their partner companies according to the booking requests. If they don’t have enough in their parking lot, they will try to get more from their partners. This is where I can help them &mdash making a predictive model. Anything is better than nothing!  
 
 
 # The data
