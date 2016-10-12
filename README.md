@@ -36,6 +36,8 @@ A 7-day forecast can then be made using the model.
 
 <img src="https://raw.githubusercontent.com/shchao53/sk_public/master/image/forecasting.png" width="600" align="middle">
 
+I evaluated the model performance via cross-validation (time-series cross-validation, more strictly speaking). The data was split into training and testing sets, but unlike the classical cross-validation, the testing set always contained the ''future'' observations with respect to the training set. The average root-mean-square error was 28% of the average booking number. 
+
 # Summary
 <img src="https://raw.githubusercontent.com/shchao53/sk_public/master/image/pipeline.png" width="600" align="middle">
 
